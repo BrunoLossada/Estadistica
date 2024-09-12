@@ -27,12 +27,20 @@ def insertar_datos():               #Insertar datos y ordenarlos de menor a mayo
         
     system('cls')
     n_datos = len(datos)
-    print(f'Sus datos, ordenados de menor a mayor, son: {datos}.\nEn total, ingresaste {n_datos} datos')
+    print(f'Los datos que ingresó son: {datos}.\nEn total, ingresaste {n_datos} datos')
     print(f'Aprieta [1] Para confirmar.')
     print(f'Aprieta [2] Si quieres borrar un valor.')
     print(f'Aprieta [3] Si quieres editar un valor')
     print(f'Aprieta [4] Si quieres agregar un nuevo valor')
-    key = float(msvcrt.getch())
+    
+    key = 0
+    while True:
+        try:
+            key = float(msvcrt.getch())
+            break
+        except ValueError:
+            print('Ingresa una variable válida.')
+            continue
     
     while key != 1:
         if key == 1:
@@ -45,12 +53,19 @@ def insertar_datos():               #Insertar datos y ordenarlos de menor a mayo
             datos.remove(eliminar)
             n_datos = len(datos)
             system('cls')
-            print(f'La nueva lista de datos es: {datos.sort()}, y tiene {len(datos)} datos')
+            print(f'La nueva lista de datos es: {datos}, y tiene {len(datos)} datos')
             print(f'Aprieta [1] Para confirmar.')
             print(f'Aprieta [2] Si quieres borrar un valor.')
             print(f'Aprieta [3] Si quieres editar un valor')
             print(f'Aprieta [4] Si quieres agregar un nuevo valor')
-            key = float(msvcrt.getch())
+            key = 0
+            while True:
+                try:
+                    key = float(msvcrt.getch())
+                    break
+                except ValueError:
+                    print('Ingresa una variable válida.')
+                    continue
             
         if key == 3:
             try:
@@ -65,8 +80,15 @@ def insertar_datos():               #Insertar datos y ordenarlos de menor a mayo
             print(f'Aprieta [2] Si quieres borrar un valor.')
             print(f'Aprieta [3] Si quieres editar un valor')
             print(f'Aprieta [4] Si quieres agregar un nuevo valor')
-            key = float(msvcrt.getch())
-            
+            key = 0
+            while True:
+                try:
+                    key = float(msvcrt.getch())
+                    break
+                except ValueError:
+                    print('Ingresa una variable válida.')
+                    continue
+        
         if key == 4:
             try:
                 datos.append(float(input('\nIngrese su valor, colocando un punto como separación decimal: ')))
@@ -80,12 +102,22 @@ def insertar_datos():               #Insertar datos y ordenarlos de menor a mayo
             print(f'Aprieta [2] Si quieres borrar un valor.')
             print(f'Aprieta [3] Si quieres editar un valor')
             print(f'Aprieta [4] Si quieres agregar un nuevo valor')
-            key = float(msvcrt.getch())
-            
+            key = 0
+            while True:
+                try:
+                    key = float(msvcrt.getch())
+                    break
+                except ValueError:
+                    print('Ingresa una variable válida.')
+                    continue
+
         else:
             print('Por favor, selecciona una de las opciones para continuar.')
+            key = key = float(msvcrt.getch())
         
+    system('cls')
     datos.sort()
+    print(f'Los datos ordenados de menor a mayor son:\n {datos}\n En total hay {n_datos}')
     valor = float(input('Por favor, escoge el valor sobre el cual quieres realizar la prueba Q: '))
     while valor not in datos:
         valor = float(input('El valor que seleccionaste no se encuentra dentro de la lista de datos, por favor escoge otro: '))
