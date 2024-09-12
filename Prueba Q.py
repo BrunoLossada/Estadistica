@@ -117,7 +117,7 @@ def insertar_datos():               #Insertar datos y ordenarlos de menor a mayo
         
     system('cls')
     datos.sort()
-    print(f'Los datos ordenados de menor a mayor son:\n {datos}\n En total hay {n_datos}')
+    print(f'Los datos ordenados de menor a mayor son:\n {datos}\n En total hay {n_datos} datos')
     valor = float(input('Por favor, escoge el valor sobre el cual quieres realizar la prueba Q: '))
     while valor not in datos:
         valor = float(input('El valor que seleccionaste no se encuentra dentro de la lista de datos, por favor escoge otro: '))
@@ -289,16 +289,19 @@ def Prueba_Q():
     tecla = msvcrt.getch()
     while tecla == b'\r': #enter
         valor = float(input('Ingresa el nuevo valor: '))
+        
         while valor not in datos:
             valor = float(input('El valor que seleccionaste no se encuentra dentro de la lista de datos, por favor escoge otro: '))
+            
         Nivel_Confianza = nivel_confianza()
         valor_cercano = Valor_Cercano(valor, datos)
         qcr = q_crit(datos, n_datos,Nivel_Confianza)
         q = calculo_q(valor,valor_cercano,datos)
-        if q<qcr:
+        
+        if q>qcr:
             system('cls')
             print(f'Q es mayor Qcr, por lo cual deberías descartar el valor {valor}')
-        elif q>qcr:
+        elif q<qcr:
             system('cls')
             print(f'Q es menor a Qcr, por lo cual conservar descartar el valor {valor}')
             
