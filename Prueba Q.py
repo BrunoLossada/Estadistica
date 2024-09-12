@@ -303,7 +303,7 @@ def Prueba_Q():
             print(f'Q es mayor Qcr, por lo cual deberías descartar el valor {valor}')
         elif q<qcr:
             system('cls')
-            print(f'Q es menor a Qcr, por lo cual conservar descartar el valor {valor}')
+            print(f'Q es menor a Qcr, por lo cual conservar el valor {valor}')
             
         print('\n\nAprieta [ENTER] si te gustaría realizar nuevamente la prueba Q para el mismo conjunto de datos')
         print('Aprieta cualquier otra tecla si quieres finalizar')
