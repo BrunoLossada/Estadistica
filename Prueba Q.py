@@ -261,7 +261,7 @@ def Valor_Cercano(valor, datos):
     diferencias = []
     datos_sin_valor = [dato for dato in datos if dato != valor]
     diferencias = [abs(valor - dato) for dato in datos_sin_valor]
-    valor_cercano = abs(min(diferencias) + valor)
+    valor_cercano = abs(valor - min(diferencias))
     print(f'El valor mas cercano es {valor_cercano}')
     return valor_cercano
 
